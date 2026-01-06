@@ -5,23 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abu Bakar - Machine Learning Developer</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <h1 class="profile-name">Abu Bakar</h1>
-                <h2 class="profile-title">Machine Learning Developer | BS Computer Science Student</h2>
-                <div class="contact-info">
-                    <a href="tel:03480472778"><i class="fas fa-phone"></i> 03480472778</a>
-                    <a href="mailto:abubakarp789@gmail.com"><i class="fas fa-envelope"></i> abubakarp789@gmail.com</a>
-                    <a href="https://linkedin.com/in/abubakar56/" target="_blank"><i class="fab fa-linkedin"></i> linkedin.com/in/abubakar56/</a>
-                    <a href="https://github.com/abubakarp789" target="_blank"><i class="fab fa-github"></i> github.com/abubakarp789</a>
+    <div class="pdf-actions">
+        <button onclick="downloadPDF()" class="pdf-button">Generate & Download PDF</button>
+    </div>
+
+    <div id="resume-content">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <h1 class="profile-name">Abu Bakar</h1>
+                    <h2 class="profile-title">Machine Learning Developer | BS Computer Science Student</h2>
+                    <div class="contact-info">
+                        <span>Phone: 03480472778</span>
+                        <span>Email: abubakarp789@gmail.com</span>
+                        <span>LinkedIn: linkedin.com/in/abubakar56/</span>
+                        <span>GitHub: github.com/abubakarp789</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
 
     <main class="container">
         <!-- Summary Section -->
@@ -125,9 +130,7 @@
                             <li>Implemented workforce pattern visualization and actionable insights through a Decision Tree Classifier</li>
                         </ul>
                     </div>
-                    <a href="https://github.com/abubakarp789/HR-Attrition-Predictor.git" class="github-link" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
+                    <p class="github-link">GitHub: https://github.com/abubakarp789/HR-Attrition-Predictor.git</p>
                 </div>
 
                 <div class="project-item">
@@ -146,9 +149,7 @@
                             <li>Implemented content analysis, sentiment analysis, and timing features, achieving 85% accuracy</li>
                         </ul>
                     </div>
-                    <a href="https://github.com/abubakarp789/Viral_or_Not-Predicting_Virality_of_Tweets.git" class="github-link" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
+                    <p class="github-link">GitHub: https://github.com/abubakarp789/Viral_or_Not-Predicting_Virality_of_Tweets.git</p>
                 </div>
 
                 <div class="project-item">
@@ -167,9 +168,7 @@
                             <li>Implemented data preprocessing, exploratory analysis, and real-time predictions with multiple model implementations</li>
                         </ul>
                     </div>
-                    <a href="https://github.com/abubakarp789/Churn_Predictor.git" class="github-link" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
+                    <p class="github-link">GitHub: https://github.com/abubakarp789/Churn_Predictor.git</p>
                 </div>
 
                 <div class="project-item">
@@ -187,9 +186,7 @@
                             <li>Implemented automated grade calculation and customizable report templates</li>
                         </ul>
                     </div>
-                    <a href="https://github.com/abubakarp789/Python-Internship-CodeX-Computing-Co/tree/main/Student%20Report%20Card%20Generator" class="github-link" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
+                    <p class="github-link">GitHub: https://github.com/abubakarp789/Python-Internship-CodeX-Computing-Co/tree/main/Student%20Report%20Card%20Generator</p>
                 </div>
             </div>
         </section>
@@ -262,12 +259,6 @@
             </div>
         </section>
 
-        <!-- Download Resume Section -->
-        <section class="download-section">
-            <a href="Abubakar_Resume.pdf" class="download-resume" download>
-                <i class="fas fa-download"></i> Download Resume
-            </a>
-        </section>
     </main>
 
     <footer>
@@ -275,5 +266,20 @@
             <p>© 2025 Abu Bakar | Machine Learning Developer | BS Computer Science Student</p>
         </div>
     </footer>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('resume-content');
+            const opt = {
+                margin: 0.5,
+                filename: 'Abu_Bakar_Resume.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2, useCORS: true },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
 </body>
 </html>
