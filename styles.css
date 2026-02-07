@@ -251,9 +251,11 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    list-style: none;
+    padding: 0;
 }
 
-.project-tools span {
+.project-tools li {
     background: var(--light-bg);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
@@ -306,6 +308,8 @@ main {
     display: flex;
     flex-wrap: wrap;
     gap: 0.8rem;
+    list-style: none;
+    padding: 0;
 }
 
 .skill-tag {
@@ -434,5 +438,81 @@ footer p {
     .download-resume {
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
+    }
+}
+
+/* Print Styles for ATS Compatibility */
+@media print {
+    * {
+        background: none !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+
+    header {
+        padding: 0.5rem 0;
+    }
+
+    .contact-info {
+        gap: 0.5rem;
+    }
+
+    .contact-info a {
+        padding: 0;
+        background: none !important;
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .achievements-container {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        margin-bottom: 0.5rem;
+        padding: 0.5rem 0;
+        box-shadow: none;
+        border: none;
+        page-break-inside: avoid;
+    }
+
+    .section:hover {
+        transform: none;
+        box-shadow: none;
+        border: none;
+    }
+
+    .project-item {
+        page-break-inside: avoid;
+        border: 1px solid #ccc;
+    }
+
+    .project-item:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .download-section {
+        display: none;
+    }
+
+    footer {
+        display: none;
+    }
+
+    a[href]::after {
+        content: none;
     }
 }
